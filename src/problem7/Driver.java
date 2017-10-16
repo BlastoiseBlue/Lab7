@@ -3,6 +3,7 @@ package problem7;
 public class Driver {
 
 	public static void main(String[] args) {
+		Compare comparer = new Compare();
 		Temperature temp1 = new Temperature();
 		temp1.printTemp();
 		System.out.println(temp1.temperatureF+""+temp1.invScale);
