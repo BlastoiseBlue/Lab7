@@ -32,7 +32,7 @@ public class Temperature {
 		switch (scale) {
 		case 'C':
 			temperatureC = temperature;
-			temperatureF=convert(temperature);
+			temperatureF = convert(temperature);
 			break;
 		case 'F':
 			temperatureF = temperature;
@@ -44,10 +44,17 @@ public class Temperature {
 	public void setScale(String inputScale) {
 		inputScale = inputScale.toUpperCase();
 		scale = inputScale.charAt(0);
+		calibrateScale();
+	}
+
+	public void setScale(char inputScale) {
+		scale = Character.toUpperCase(inputScale);
+		calibrateScale();
 	}
 
 	public void setTemp(float inputTemp) {
 		temperature = inputTemp;
+		calibrateScale();
 	}
 
 	Temperature() {
@@ -75,6 +82,7 @@ public class Temperature {
 	}
 
 	private float trueTemp() {
+		calibrateScale();
 		return convert(temperatureF);
 	}
 
@@ -92,7 +100,11 @@ public class Temperature {
 		return pattern00dot00.format(inputTemp);
 	}
 
+	public String outputTemp() {
+		return pattern00dot00.format(temperature);
+	}
+
 	public void printTemp() {
-		System.out.println(outputTemp(temperature) + scale);
+		System.out.println(outputTemp(temperature) + "" + scale);
 	}
 }
