@@ -1,8 +1,3 @@
-/*
- * Emmet Stanevich
- * 10/10/17
- * Problem 3
- */
 package problem3;
 
 public class Driver {
